@@ -182,7 +182,8 @@ layout/*
 !lib/config-exemple.php
 !layout/layout-exemple.php
 
-# Inclusion de Bootstrap
+# Inclusion de jQuery & Bootstrap
+!js/jquery-*.min.js
 !css/bootstrap.min.css
 !css/bootstrap-responsive.min.css
 !js/bootstrap.min.js
