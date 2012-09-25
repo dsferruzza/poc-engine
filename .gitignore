@@ -163,7 +163,7 @@ pip-log.txt
 .DS_Store
 
 
-
+# Exclusion du contenu
 pages/*
 actions/*
 css/*
@@ -172,9 +172,19 @@ img/*
 lib/*
 layout/*
 
+# Inclusion des .htaccess
 !pages/.htaccess
 !actions/.htaccess
 !lib/.htaccess
 !layout/.htaccess
+
+# Inclusion des exemples
 !lib/config-exemple.php
 !layout/layout-exemple.php
+
+# Inclusion de Bootstrap
+!css/bootstrap.min.css
+!css/bootstrap-responsive.min.css
+!js/bootstrap.min.js
+!img/glyphicons-halflings.png
+!img/glyphicons-halflings-white.png
