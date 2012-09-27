@@ -19,6 +19,14 @@ function url($page='index')
 	return '?p='.$page;
 }
 
+// Redirige vers une URL (combiner avec url() pour rediriger vers une page interne)
+// À utiliser dans une action, AVANT TOUTE SORTIE (echo ou affichage de code HTML)
+function redirect($url)
+{
+	header('Location: '.$url);
+	exit;
+}
+
 /***********************************/
 
 // Chargement de la configuration
