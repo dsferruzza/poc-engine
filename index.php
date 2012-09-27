@@ -14,8 +14,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ************************************/
 
 // Renvoie l'URL d'un lien interne
-function url($page='index')
+function url($page=null)
 {
+	if (empty($page)) return '.';
 	return '?p='.$page;
 }
 
