@@ -9,8 +9,9 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-// Information de connexion � la base de donn�es
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', null);
-define('DB_NAME', 'poc');
+// On teste si la config est présente
+if (defined('DB_HOST') and defined('DB_USER') and defined('DB_PASS') and defined('DB_NAME'))
+{
+	$db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+}
+else die('Les informations concernant la base de données doivent être définies dans lib/config.php !');

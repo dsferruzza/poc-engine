@@ -33,6 +33,9 @@ function redirect($url)
 // Chargement de la configuration
 require 'lib/config.php';
 
+// Chargement des libs
+require 'lib/db.php';
+
 // Détermination de la l'action et de la page demandées
 if (isset($_GET['p']))
 {
