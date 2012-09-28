@@ -164,8 +164,8 @@ pip-log.txt
 
 
 # Exclusion du contenu
-pages/*
-actions/*
+vue/*
+controleur/*
 css/*
 js/*
 img/*
@@ -173,8 +173,8 @@ lib/*
 layout/*
 
 # Inclusion des .htaccess
-!pages/.htaccess
-!actions/.htaccess
+!vue/.htaccess
+!controleur/.htaccess
 !lib/.htaccess
 !layout/.htaccess
 

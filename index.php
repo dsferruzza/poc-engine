@@ -17,11 +17,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 function url($page=null)
 {
 	if (empty($page)) return '.';
-	return '?p='.$page;
+	return '?action='.$page;
 }
 
 // Redirige vers une URL (combiner avec url() pour rediriger vers une page interne)
-// À utiliser dans une action, AVANT TOUTE SORTIE (echo ou affichage de code HTML)
+// À utiliser dans un contrôleur, AVANT TOUTE SORTIE (echo ou affichage de code HTML)
 function redirect($url)
 {
 	header('Location: '.$url);
@@ -36,27 +36,27 @@ require 'lib/config.php';
 // Chargement des libs
 require 'lib/db.php';
 
-// Détermination de la l'action et de la page demandées
-if (isset($_GET['p']))
+// Détermination du contrôleur et de la vue demandée
+if (isset($_GET['action']))
 {
-	// On nettoie un peu l'entrée (suppression des points pour éviter qu'on puisse remonter hors du répertoires des pages ou des actions)
-	$requete = str_replace('.', null, trim($_GET['p']));
+	// On nettoie un peu l'entrée (suppression des points pour éviter qu'on puisse remonter hors du répertoires des contrôleurs ou des vues)
+	$requete = str_replace('.', null, trim($_GET['action']));
 }
 else $requete = 'index';
 
-// Vérification de l'existence de l'action et de la page demandées
-if (is_file('actions/'.$requete.'.php')) $action = 'actions/'.$requete.'.php';
-if (is_file('pages/'.$requete.'.php')) $page = 'pages/'.$requete.'.php';
+// Vérification de l'existence du contrôleur et de la vue demandées
+if (is_file('controleur/'.$requete.'.php')) $controleur = 'controleur/'.$requete.'.php';
+if (is_file('vue/'.$requete.'.php')) $vue = 'vue/'.$requete.'.php';
 
 // Si ni l'action, ni la page n'existent, on déclenche une erreur 404
-if (!(isset($action) or isset($page)))
+if (!(isset($controleur) or isset($vue)))
 {
 	header('HTTP/1.0 404 Not Found');
 	die('404');
 }
 
-// Si l'action existe, on l'exécute
-if (isset($action)) require $action;
+// Si le contrôleur existe, on l'exécute
+if (isset($controleur)) require $controleur;
 
 // On exécute le layout, qui exécutera la page, si elle existe
 require 'layout/layout.php';

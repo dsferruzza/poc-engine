@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<?php /* Affichage de la page demandée */ if (isset($page)) include $page; ?>
+			<?php /* Affichage de la vue demandée */ if (isset($vue)) include $vue; ?>
 		</div>
 	</body>
 </html>
