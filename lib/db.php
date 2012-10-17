@@ -13,5 +13,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 if (defined('DB_HOST') and defined('DB_USER') and defined('DB_PASS') and defined('DB_NAME'))
 {
 	$db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+	$db->set_charset('utf8');
 }
 else die('Les informations concernant la base de données doivent être définies dans lib/config.php !');
