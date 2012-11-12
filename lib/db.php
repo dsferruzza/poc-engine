@@ -12,6 +12,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 // On teste si la config est présente
 if (defined('DB_HOST') and defined('DB_USER') and defined('DB_PASS') and defined('DB_NAME'))
 {
+	mysqli_report(MYSQLI_REPORT_ERROR);
 	$db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 	$db->set_charset('utf8');
 }
